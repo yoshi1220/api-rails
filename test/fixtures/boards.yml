@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  group_id: MyText
+  title: MyText
+  name: MyText
+  email: MyText
+  content: MyText
+  complete: false
+
+two:
+  group_id: MyText
+  title: MyText
+  name: MyText
+  email: MyText
+  content: MyText
+  complete: false
