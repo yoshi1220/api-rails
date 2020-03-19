@@ -20,4 +20,11 @@ class BoardsController < ApplicationController
     )
     render json: @board
   end
+
+  def update
+    @board = Board.find(params[:id])
+    @board.update_attributes(complete: params[:complete])
+    render json: @board
+  end
+
 end
