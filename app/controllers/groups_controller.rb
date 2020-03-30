@@ -6,8 +6,12 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.create(name: params[:name])
-    render json: @group
+    @group = Group.new(name: params[:name])
+    if @group.save
+      render json: @group
+    else
+      render json: @group.errors, status: :unprocessable_entity
+    end
   end
 
   def update

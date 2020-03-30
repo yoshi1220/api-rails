@@ -10,7 +10,7 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @board = Board.create(
+    @board = Board.new(
       group_id: params[:group_id],
       title: params[:title],
       name: params[:name],
@@ -18,7 +18,12 @@ class BoardsController < ApplicationController
       content: params[:content],
       complete: params[:complete]
     )
-    render json: @board
+
+    if @board.save
+      render json: @board
+    else
+      render json: @board.errors, status: :unprocessable_entity
+    end
   end
 
   def update
