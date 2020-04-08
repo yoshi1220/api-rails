@@ -8,7 +8,7 @@ class BoardsController < ApplicationController
     if params[:isAdmin] == 'true'
       @board = Board.where(group_id: params[:group_id])
     else
-      @board = Board.where(group_id: params[:group_id], complete: true)
+      @board = Board.where(group_id: params[:group_id], complete: false)
     end
     render json: @board
   end
