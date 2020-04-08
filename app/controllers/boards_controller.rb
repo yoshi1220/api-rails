@@ -5,7 +5,11 @@ class BoardsController < ApplicationController
   end
 
   def find
-    @board = Board.where(group_id: params[:group_id])
+    if params[:isAdmin] == 'true'
+      @board = Board.where(group_id: params[:group_id])
+    else
+      @board = Board.where(group_id: params[:group_id], complete: true)
+    end
     render json: @board
   end
 
